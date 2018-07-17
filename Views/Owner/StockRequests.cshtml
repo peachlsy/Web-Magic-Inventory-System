@@ -1,0 +1,53 @@
+﻿
+
+
+@model IEnumerable<StockRequest>
+
+@{
+    ViewBag.Title = "Stock Requests";
+}
+
+<h2>Stock Requests</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>               
+                @Html.DisplayNameFor(model => model.StockRequestID)
+            </th>
+            <th>
+                Store Name
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockRequestID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Store.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                <a asp-action="ProcessRequest" asp-route-id="@item.StockRequestID" class="btn btn-info btn-sm" role="button">Process</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

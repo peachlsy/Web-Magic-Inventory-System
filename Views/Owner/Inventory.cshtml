@@ -1,0 +1,52 @@
+﻿
+@model IEnumerable<OwnerInventory>
+
+@{
+    ViewBag.Title = "Owner Inventory";
+}
+
+<h2>Owner Inventory</h2>
+<br>
+@*filter by keyword*@
+<form method="get">
+    <p>
+        Product Name: <input name="productName" value="@ViewBag.ProductName" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<br>
+<table class="table table-striped table-hover ">
+    <thead >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockLevel)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockLevel)
+            </td>
+            <td>
+                <a asp-action="SetStockLevel" asp-route-id="@item.ProductID" class="btn btn-info btn-sm" role="button">SetStockLevel</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

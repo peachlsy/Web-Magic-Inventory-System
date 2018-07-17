@@ -1,0 +1,36 @@
+﻿@model WDTA2.Models.BusinessModels.StoreInventory
+@{
+    ViewData["Title"] = "AddToCart";
+}
+
+<h2>Add to cart</h2>
+<br>
+<h3>Product: @Model.Product.Name</h3>
+<h3>Price: @Model.Product.Price</h3>
+<hr>
+<hr>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddToCart">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" asp-for="StoreID" />
+            <div class="form-group">
+                <label asp-for="StockLevel" class="control-label">Quantity to order</label>
+                <input asp-for="StockLevel" class="form-control" />
+                <span asp-validation-for="StockLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default btn-warning" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Inventory">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

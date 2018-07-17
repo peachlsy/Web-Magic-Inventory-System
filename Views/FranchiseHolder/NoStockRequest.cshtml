@@ -1,0 +1,41 @@
+﻿@model WDTA2.Models.BusinessModels.OwnerInventory
+@{
+    ViewData["Title"] = "SetStockLevel";
+}
+
+
+<h2>Add a new product</h2>
+<br>
+<h3>Product: @Model.Product.Name</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="AddNoStockRequest">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" name="productID" id="productID" value="@Model.ProductID" />
+
+            <div class="form-group">
+                <label asp-for="StockLevel" class="control-label">Request Quantity</label>
+                <input asp-for="StockLevel" class="form-control" />
+                <span asp-validation-for="StockLevel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default btn btn-default btn-warning" />
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="noInventory">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

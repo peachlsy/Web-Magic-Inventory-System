@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "_FranchiseHolderPartial";
+}
+@using Microsoft.AspNetCore.Identity
+@using WDTA2.Models
+@using WDTA2.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (User.IsInRole(Constants.FranchHolderRoleCbd)|| User.IsInRole(Constants.FranchHolderRoleNorth)
+   || User.IsInRole(Constants.FranchHolderRoleSouth) || User.IsInRole(Constants.FranchHolderRoleWest)
+   || User.IsInRole(Constants.FranchHolderRoleEast))
+{
+
+    <ul class="nav navbar-nav">
+        <li>
+            <a asp-area="" asp-controller="FranchiseHolder" asp-action="Inventory" title="Manage">Show Inventory</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="FranchiseHolder" asp-action="NotInventory" title="Manage">Add a new product</a>
+        </li>
+    </ul>
+}

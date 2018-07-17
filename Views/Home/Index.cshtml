@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WDTA2.Models
+@using WDTA2.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (User.IsInRole(Constants.OwnerRole))
+{
+    <h2>Owner Page</h2>
+}
+else if (User.IsInRole(Constants.FranchHolderRoleCbd))
+{
+    <h2>Melbourne CBD Branch Franch Holder Page</h2>
+}
+else if (User.IsInRole(Constants.FranchHolderRoleEast))
+{
+    <h2>East Melbourne Branch Franch Holder Page</h2>
+}
+else if (User.IsInRole(Constants.FranchHolderRoleWest))
+{
+    <h2>West Melbourne Branch Franch Holder Page</h2>
+}
+else if (User.IsInRole(Constants.FranchHolderRoleNorth))
+{
+    <h2>North Melbourne Branch Franch Holder Page</h2>
+}
+else if (User.IsInRole(Constants.FranchHolderRoleSouth))
+{
+    <h2>South Melbourne Branch Franch Holder Page</h2>
+}
+else if (User.IsInRole(Constants.CustomerRole))
+{
+    <h2>Customer Page</h2>
+}
+else
+{
+    <h2>Welcome to shopping website !</h2>
+    <br><br>
+    <h4>Please Login</h4>
+    <br><br>
+    <a asp-area="" asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg" role="button">Log in</a>
+    <br><br><br><br>
+}

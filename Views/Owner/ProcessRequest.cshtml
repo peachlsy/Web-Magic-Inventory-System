@@ -1,0 +1,51 @@
+﻿@model WDTA2.Models.BusinessModels.StockRequest
+
+@{
+    ViewData["Title"] = "ProcessRequest";
+}
+
+<h2>ProcessRequest</h2>
+
+<h3>Are you sure you want to process this request?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StockRequestID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StockRequestID)
+        </dd>
+        <dt>
+            Store Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Store.Name)
+        </dd>
+        <dt>
+            Product Name
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt>
+            Stock level Now
+        </dt>
+        <dd>
+            @ViewBag.ownerInventory
+        </dd>
+    </dl>
+
+    <form asp-action="ProcessRequest">
+        <input type="hidden" asp-for="StockRequestID" />
+        &emsp;&emsp;&emsp;&emsp;
+        <input type="submit" value="Continue" class="btn btn-default btn-warning" /> |
+        <a asp-action="StockRequests">Back to List</a>
+    </form>
+</div>

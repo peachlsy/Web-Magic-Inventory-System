@@ -1,0 +1,40 @@
+{
+  "name": "card-js",
+  "authors": [
+    "Colin Stannard <colin@cbsindustries.com>"
+  ],
+  "description": "Credit Card input form with validation",
+  "main": "./card-js.min.js",
+  "homepage": "https://cardjs.co.uk",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "Card JS",
+    "Credit Card Input",
+    "Credit Card Form",
+    "Credit Card Validation"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "1.11.1"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "version": "1.0.15",
+  "_release": "1.0.15",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.15",
+    "commit": "05980e89810a682db474eb0429da3b0fba6e5e37"
+  },
+  "_source": "https://github.com/CardJs/CardJs.git",
+  "_target": "v1.0.15",
+  "_originalSource": "card-js",
+  "_direct": true
+}

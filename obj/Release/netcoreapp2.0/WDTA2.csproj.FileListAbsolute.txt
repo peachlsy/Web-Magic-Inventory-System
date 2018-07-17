@@ -1,0 +1,11 @@
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\bin\Release\netcoreapp2.0\WDTA2.deps.json
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\bin\Release\netcoreapp2.0\WDTA2.runtimeconfig.json
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\bin\Release\netcoreapp2.0\WDTA2.runtimeconfig.dev.json
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\bin\Release\netcoreapp2.0\WDTA2.dll
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\bin\Release\netcoreapp2.0\WDTA2.pdb
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\obj\Release\netcoreapp2.0\WDTA2.csproj.CoreCompileInputs.cache
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\obj\Release\netcoreapp2.0\WDTA2.AssemblyInfoInputs.cache
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\obj\Release\netcoreapp2.0\WDTA2.AssemblyInfo.cs
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\obj\Release\netcoreapp2.0\WDTA2.dll
+C:\Users\Songyan Li\source\repos\WDTA2\WDTA2\obj\Release\netcoreapp2.0\WDTA2.pdb

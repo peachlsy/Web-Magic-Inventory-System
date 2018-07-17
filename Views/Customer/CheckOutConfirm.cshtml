@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNetCore.Http
+@using WDTA2.Controllers
+@using WDTA2.Models.BusinessModels
+
+@model IEnumerable<OrderItem>
+
+
+<h2>Check Out Confirmed</h2>
+<h3>Receipt</h3>
+<h3>Order ID: @ViewBag.orderID</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @*HTMLHelper*@
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+            <th>
+                StoreName
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var orderItem in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(item => orderItem.Product.Name)
+                </td>
+
+                @switch ( orderItem.StoreID)
+                {
+                    case 1:
+                        <td>Melbourne CBD</td>
+                        break;
+                    case 2:
+                        <td>North Melbourne</td>
+                        break;
+                    case 3:
+                        <td>East Melbourne</td>
+                        break;
+                    case 4:
+                        <td>South Melbourne</td>
+                        break;
+                    case 5:
+                        <td>West Melbourne</td>
+                        break;
+                }
+
+                        <td>
+                            @Html.DisplayFor(item => orderItem.Quantity)
+                        </td>
+                <td></td>
+            </tr>
+        }
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="bottom-right">
+        Total Price:  $@ViewBag.totalPrice
+        &emsp;&emsp;<a asp-action="Inventory" class="btn bottom-right btn-success" role="button">Back</a>
+
+    </td>
+
+
+    </tbody>
+
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WDTA2.Models.BusinessModels.Product>
+@{
+    ViewData["Title"] = "NotInventory";
+}
+@using WDTA2.Data
+<h2>Add a new product</h2>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>
+            @*HTMLHelper*@
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+       
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+            <a asp-action="NoStockRequest" asp-route-id="@item.ProductID" class="btn btn-info btn-sm" role="button">Add</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Http
+@using WDTA2.Controllers
+@using WDTA2.Models.BusinessModels
+@inject IHttpContextAccessor HttpContextAccessor
+
+@model IEnumerable<OrderItem>
+
+    <h2>ShowCart</h2>
+
+    @{
+    Decimal totalPrice = 0;
+    }
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Product.Name)
+                </th>
+                <th>
+                    StoreName
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var key in HttpContextAccessor.HttpContext.Session.Keys)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(item => HttpContextAccessor.HttpContext.Session.Get<OrderItem>(key).Product.Name)
+                </td>
+
+                @switch (HttpContextAccessor.HttpContext.Session.Get<OrderItem>(key).StoreID)
+            {
+                case 1:
+            <td>Melbourne CBD</td>
+                    break;
+                case 2:
+            <td>North Melbourne</td>
+                    break;
+                case 3:
+            <td>East Melbourne</td>
+                    break;
+                case 4:
+            <td>South Melbourne</td>
+                    break;
+                case 5:
+            <td>West Melbourne</td>
+                    break;
+            }
+
+                <td>
+                    @{
+                            var quantity = HttpContextAccessor.HttpContext.Session.Get<OrderItem>(key).Quantity;
+                            var productPrice=HttpContextAccessor.HttpContext.Session.Get<OrderItem>(key).Product.Price;
+                            totalPrice += quantity * productPrice;
+                    }
+                    @quantity
+                </td>
+                <td></td>
+                <td><a asp-action="DeleteItem" asp-route-key=@key class="btn bottom-right btn-warning" role="button">Delete</a>
+                
+                    </td>
+            </tr>
+    }
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="bottom-right">
+                Total Price: $@totalPrice
+                &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;
+                <a asp-action="CardValidation" asp-route-totalPreice="@totalPrice" class="btn bottom-right btn-success" role="button">Check out</a>
+
+            </td>
+       
+          
+        </tbody>
+
+    </table>
+    

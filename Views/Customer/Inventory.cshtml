@@ -1,0 +1,107 @@
+﻿@model IEnumerable<StoreInventory>
+
+@{
+    ViewBag.Title = "Inventory";
+}
+@using WDTA2.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@if (ViewBag.id == 1)
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="1" title="Manage" class="btn btn-default btn-lg active" role="button">Melbourne CBD</a>
+}
+else
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="1" title="Manage" class="btn btn-default btn-lg" role="button">Melbourne CBD</a>
+}
+
+@if (ViewBag.id == 2)
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="2" title="Manage" class="btn btn-default btn-lg active" role="button">North Melbourne</a>
+}
+else
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="2" title="Manage" class="btn btn-default btn-lg" role="button">North Melbourne</a>
+}
+
+@if (ViewBag.id == 3)
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="3" title="Manage" class="btn btn-default btn-lg active" role="button">East Melbourne</a>
+}
+else
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="3" title="Manage" class="btn btn-default btn-lg" role="button">East Melbourne</a>
+}
+
+@if (ViewBag.id == 4)
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="4" title="Manage" class="btn btn-default btn-lg active" role="button">South Melbourne</a>
+}
+else
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="4" title="Manage" class="btn btn-default btn-lg" role="button">South Melbourne</a>
+}
+
+@if (ViewBag.id == 5)
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="5" title="Manage" class="btn btn-default btn-lg active" role="button">West Melbourne</a>
+}
+else
+{
+    <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="5" title="Manage" class="btn btn-default btn-lg" role="button">West Melbourne</a>
+}
+    <br>
+<br>
+<form method="get">
+    <p>
+        <br>
+        Product Name: <input name="productName" value="@ViewBag.ProductName" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @*HTMLHelper*@
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StockLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StockLevel)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.Product.Price)
+                </td>
+                <td>
+                    <a asp-action="AddToCart" asp-route-id="@item.ProductID" asp-route-storeID="@ViewBag.id" class="btn btn-primary" role="button">add to cart</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "_CustomerPartial";
+}
+@using Microsoft.AspNetCore.Identity
+@using WDTA2.Models
+@using WDTA2.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (User.IsInRole(Constants.CustomerRole))
+{
+    <ul class="nav navbar-nav">
+        <li>
+            @*Set default inventory page to CBD*@
+            <a asp-area="" asp-controller="Customer" asp-action="Inventory" asp-route-storeID="1" title="Manage">Shopping</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Customer" asp-action="ShowOrderHistory" title="Manage">Order History</a>
+        </li>
+    </ul>
+    <ul class="navbar-right center-block ">
+        <li>
+
+            <a asp-area="" asp-controller="Customer" asp-action="ShowCart" title="Manage" class="btn btn-primary navbar-btn " role="button">My Cart</a>
+        </li>
+    </ul>
+}
+
+
+
+
+
+

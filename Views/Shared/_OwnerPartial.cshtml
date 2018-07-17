@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "_OwnerPartial";
+}
+@using Microsoft.AspNetCore.Identity
+@using WDTA2.Models
+@using WDTA2.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@if (User.IsInRole(Constants.OwnerRole))
+{
+    <ul class="nav navbar-nav">
+        <li>
+            <a asp-area="" asp-controller="Owner" asp-action="Inventory" title="Manage">Show Inventory</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Owner" asp-action="StockRequests" title="Manage">Stock Request</a>
+        </li>
+
+    </ul>
+}
+
+
+
+
+
+
